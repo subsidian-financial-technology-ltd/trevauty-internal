@@ -43,9 +43,9 @@ export const navbarData: INavbarData[] = [
         label: 'Analytic'
     },
     {
-        routeLink: 'manage-terminal',
+        routeLink: 'clients',
         icon: 'fal fa-tags',
-        label: 'Manage Terminal',
+        label: 'clients',
         // items: [
         //     {
         //         routeLink: 'coupens/list',

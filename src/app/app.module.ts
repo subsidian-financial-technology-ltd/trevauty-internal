@@ -18,6 +18,9 @@ import { MatInputModule } from '@angular/material/input';
 import { PasswordRequestFormComponent } from './components/auth/password-request-form/password-request-form.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
+import { OverviewComponent } from './components/dashboard/overview/overview.component';
+import { BodyComponent } from './components/dashboard/body/body.component';
+import { ClientsComponent } from './components/dashboard/clients/clients.component';
 
 
 
@@ -31,6 +34,9 @@ import { SidenavComponent } from './components/dashboard/sidenav/sidenav.compone
     PasswordRequestFormComponent,
     DashboardComponent,
     SidenavComponent,
+    OverviewComponent,
+    BodyComponent,
+    ClientsComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,13 +5,21 @@ import { SinginComponent } from './components/auth/singin/singin.component';
 import { PasswordresetComponent } from './components/auth/passwordreset/passwordreset.component';
 import { PasswordRequestFormComponent } from './components/auth/password-request-form/password-request-form.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { OverviewComponent } from './components/dashboard/overview/overview.component';
+import { ClientsComponent } from './components/dashboard/clients/clients.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: SinginComponent },
   { path: 'password-reset', component: PasswordresetComponent },
   { path: 'submit-password', component: PasswordRequestFormComponent},
-  { path: 'dashboard', component: DashboardComponent}
+  { path: 'dashboard', component: DashboardComponent, children: [
+    { path: '', redirectTo: 'overview', pathMatch: 'full' },
+    { path: 'overview', component: OverviewComponent },
+    { path: 'clients', component: ClientsComponent }
+
+  ]
+}
 ];
 
 @NgModule({
