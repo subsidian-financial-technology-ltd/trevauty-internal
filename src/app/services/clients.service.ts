@@ -36,8 +36,26 @@ export class ClientsService {
   getTerminals(): Observable<any> {
     return this.http.get<any>('assets/data/terminalData.json');
   }
+  getTerminal1(): Observable<any> {
+    return this.http.get<any>('assets/data/terminalData1.json');
+  }
+
+  getUsers(): Observable<any> {
+    return this.http.get<any>('assets/data/userData.json');
+  }
+
+  getUsersList(): Observable<any> {
+    return this.http.get<any>('assets/data/usersList.json');
+  }
   
   getActionTerminals(): Observable<any>{
     return this.http.get<any>('assets/data/actionTerminal.json');
+  }
+  getTerminal():Observable <any> {
+    return this.http.get<any>('assets/data/eachTerminal.json');
+
+  }
+  getTransactions():Observable<any>{
+    return this.http.get<any>('assets/data/transactions.json');
   }
 }

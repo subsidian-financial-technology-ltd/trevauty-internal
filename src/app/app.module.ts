@@ -21,6 +21,7 @@ import { SidenavComponent } from './components/dashboard/sidenav/sidenav.compone
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { BodyComponent } from './components/dashboard/body/body.component';
 import { ClientsComponent } from './components/dashboard/clients/clients.component';
+import { SublevelMenuComponent } from './components/dashboard/sidenav/sublevel-menu.component';
 
 
 
@@ -37,6 +38,7 @@ import { ClientsComponent } from './components/dashboard/clients/clients.compone
     OverviewComponent,
     BodyComponent,
     ClientsComponent,
+    SublevelMenuComponent,
   ],
   imports: [
     BrowserModule,
