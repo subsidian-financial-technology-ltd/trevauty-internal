@@ -6,6 +6,8 @@ export const navbarData: INavbarData[] = [
         routeLink: 'overview',
         icon: 'assets/icons/Document.png',
         label: 'Overview',
+
+
         // items: [
         //     {
         //         routeLink: 'products/level1.1',
@@ -36,6 +38,11 @@ export const navbarData: INavbarData[] = [
         //         label: 'Level 1.2',
         //     }
         // ]
+    },
+    {
+        routeLink: 'api-documentation',
+        icon: 'assets/icons/Document.png',
+        label: 'Api Documentation',
     },
     {
         routeLink: 'analytic',

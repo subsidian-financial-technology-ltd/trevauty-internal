@@ -7,6 +7,7 @@ import { PasswordRequestFormComponent } from './components/auth/password-request
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { ClientsComponent } from './components/dashboard/clients/clients.component';
+import { DocumentationComponent } from './components/dashboard/documentation/documentation.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, children: [
     { path: '', redirectTo: 'overview', pathMatch: 'full' },
     { path: 'overview', component: OverviewComponent },
-    { path: 'clients', component: ClientsComponent }
+    { path: 'clients', component: ClientsComponent },
+    { path: 'api-documentation', component: DocumentationComponent}
 
   ]
 }
