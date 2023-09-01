@@ -16,8 +16,12 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
+    "target": "ESNext",
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "types": ["node", "d3-shape", "d3-scale", "d3-selection"],
+    "typeRoots": ["node_modules/@types"],
+
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",
@@ -31,3 +35,14 @@
     "strictTemplates": true
   }
 }
+
+// {
+//   "compilerOptions": {
+//     "target": "ESNext",
+//     "module": "ESNext",
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "types": ["node", "d3-shape", "d3-scale", "d3-selection"],
+//     "typeRoots": ["node_modules/@types"]
+//   }
+// }

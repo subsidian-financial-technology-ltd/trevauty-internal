@@ -23,6 +23,12 @@ import { BodyComponent } from './components/dashboard/body/body.component';
 import { ClientsComponent } from './components/dashboard/clients/clients.component';
 import { SublevelMenuComponent } from './components/dashboard/sidenav/sublevel-menu.component';
 import { DocumentationComponent } from './components/dashboard/documentation/documentation.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { DefaultArcObject } from 'd3-shape';
+import { ScaleLinear, ScalePoint, ScaleTime, ScaleBand } from 'd3-scale';
+import { CurveFactory } from 'd3-shape';
+import { BaseType } from 'd3-selection';
+
 
 
 
@@ -52,7 +58,9 @@ import { DocumentationComponent } from './components/dashboard/documentation/doc
     NgToastModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgxChartsModule,
+    
 
   ],
   providers: [],

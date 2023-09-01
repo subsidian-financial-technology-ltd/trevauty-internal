@@ -49,4 +49,5 @@ export class AuthService {
     .append('Content-Type', 'application/json')
     return this.http.get<any>(this.singupUrl);
   }
+ 
 }

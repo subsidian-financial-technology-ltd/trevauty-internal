@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +56,9 @@ export class ClientsService {
 
   }
   getTransactions():Observable<any>{
-    return this.http.get<any>('assets/data/transactions.json');
+    return this.http.get<any>('assets/data/transactions.json').pipe(map((res: any) => {
+      console.log("API response>>", res);
+      return res;
+    }))
   }
 }
