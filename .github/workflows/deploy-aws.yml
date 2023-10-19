@@ -13,6 +13,10 @@ jobs:
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
