@@ -27,6 +27,6 @@ jobs:
           application_name: trevautyInternal
           environment_name: TrevautyInternalEnv
           version_label: ${{ github.sha }}
-          existing_bucket_name: trevautyInternal
+          existing_bucket_name: trevautyinternal
           region: eu-north-1
           deployment_package: deploy.zip
