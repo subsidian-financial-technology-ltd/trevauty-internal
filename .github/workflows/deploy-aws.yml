@@ -1,4 +1,4 @@
-name: trevauty-internal-app
+name: trevautyInternalApp
 on:
   push:
     branches:
@@ -24,9 +24,9 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: trevauty-internal
-          environment_name: Trevauty-internal-env
+          application_name: trevautyInternal
+          environment_name: TrevautyInternalEnv
           version_label: ${{ github.sha }}
-          existing_bucket_name: trevauty-internal
+          existing_bucket_name: trevautyInternal
           region: eu-north-1
           deployment_package: deploy.zip
