@@ -28,6 +28,7 @@ import { DefaultArcObject } from 'd3-shape';
 import { ScaleLinear, ScalePoint, ScaleTime, ScaleBand } from 'd3-scale';
 import { CurveFactory } from 'd3-shape';
 import { BaseType } from 'd3-selection';
+import { ClientDetailComponent } from './components/dashboard/client-detail/client-detail.component';
 
 
 
@@ -47,6 +48,7 @@ import { BaseType } from 'd3-selection';
     ClientsComponent,
     SublevelMenuComponent,
     DocumentationComponent,
+    ClientDetailComponent,
   ],
   imports: [
     BrowserModule,

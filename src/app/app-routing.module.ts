@@ -8,21 +8,26 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { ClientsComponent } from './components/dashboard/clients/clients.component';
 import { DocumentationComponent } from './components/dashboard/documentation/documentation.component';
+import { ClientDetailComponent } from './components/dashboard/client-detail/client-detail.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: SinginComponent },
   { path: 'password-reset', component: PasswordresetComponent },
-  { path: 'submit-password', component: PasswordRequestFormComponent},
-  { path: 'dashboard', component: DashboardComponent, children: [
-    { path: '', redirectTo: 'overview', pathMatch: 'full' },
-    { path: 'overview', component: OverviewComponent },
-    { path: 'clients', component: ClientsComponent },
-    { path: 'api-documentation', component: DocumentationComponent}
+  { path: 'submit-password', component: PasswordRequestFormComponent },
+  {
+    path: 'dashboard', component: DashboardComponent, children: [
+      { path: '', redirectTo: 'overview', pathMatch: 'full' },
+      { path: 'overview', component: OverviewComponent },
+      { path: 'clients', component: ClientsComponent},
+      { path: 'clients/:id', component: ClientDetailComponent }, 
 
-  ]
-}
+      { path: 'api-documentation', component: DocumentationComponent }
+    ],
+
+  },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
