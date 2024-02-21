@@ -10,7 +10,7 @@ import { ClientsService } from 'src/app/services/clients.service';
 export class ClientsComponent {
 
   apiResponse: any;
-  data: any[] = [];
+  merchants: any[] = [];
   page: number = 0;
   size: number = 10;
   analyticsOverview: any;
@@ -21,7 +21,7 @@ export class ClientsComponent {
   }
 
 
-  terminalFilterRequest = {
+  merchantFilterRequest = {
     status: null,
     paymentId: null,
     creationDate: null,
@@ -35,20 +35,22 @@ userList: any[] = [];
 
 constructor(private router: Router, private clientService: ClientsService) { }
 
-getUsers(): void{
+// getUsers(): void{
+//   console.log("hello world 3")
 
-  this.clientService.getUsers().subscribe({
-    next:(res: any)=>{
-      this.userList = res;
+//   this.clientService.getUsers().subscribe({
+//     next:(res: any)=>{
+//       this.userList = res;
+//       // this.merchants = res;
 
-      console.log(res);
+//       console.log(res);
 
-    }, error:()=>{
+//     }, error:()=>{
 
-    }
-  })
+//     }
+//   })
 
-}
+// }
 
 showDetails(user: any): void {
   console.log(user);
@@ -58,13 +60,12 @@ showDetails(user: any): void {
 
 
   ngOnInit(): void {
-    this.getTerminals();
-    this.getUsers();
+    this.getMerchants();
+    // this.getUsers();
     this.getUsersList();
     // this.getTransactions();
 
-    this.getTerminals();
-    this.getUsers();
+    // this.getUsers();
 
     // this.getAnalyticsOverview();
   }
@@ -81,19 +82,19 @@ showDetails(user: any): void {
   // }
 
 
-  getTerminals(): void {
+  getMerchants(): void {
     console.log("hello world");
-    console.log(this.terminalFilterRequest.page, this.terminalFilterRequest.size);
-    this.clientService.getTransactions(this.terminalFilterRequest.page, this.terminalFilterRequest.size).subscribe({
+    console.log(this.merchantFilterRequest.page, this.merchantFilterRequest.size);
+    this.clientService.getMerchants(this.merchantFilterRequest.page, this.merchantFilterRequest.size).subscribe({
       next: (response: any) => {
         this.transactions = response;
         this.apiResponse = response;
         // this.data = this.apiResponse?.data?.content;
-        this.data = [{role:"role"}, {role:"role"}];
-        console.log(this.data);
+        this.merchants = response?.data?.content;
+        console.log(this.merchants);
         this.totalNumOfEntry = this.apiResponse?.data?.totalElements;
         this.getNumberOfPages(this.totalNumOfEntry);
-        console.log(this.data);
+        console.log(this.merchants);
       },
       error: (items: any) => {
 
@@ -118,44 +119,45 @@ showDetails(user: any): void {
     console.log("hello 1");
     if (this.page < this.apiResponse?.totalPages) {
       this.page + 1;
-      this.getTerminals();
+      this.getMerchants();
     }
   }
   pageDecrement() {
     console.log("hello 2");
     if (this.page > 1) {
       this.page - 1;
-      this.getTerminals();
+      this.getMerchants();
     }
   }
 
   getNumberOfPages(totalEntry: number): void {
     console.log(totalEntry);
-    console.log(this.terminalFilterRequest.size);
-    if (totalEntry % this.terminalFilterRequest.size == 0) {
-      this.numOfPages = totalEntry / this.terminalFilterRequest.size;
+    console.log(this.merchantFilterRequest.size);
+    if (totalEntry % this.merchantFilterRequest.size == 0) {
+      this.numOfPages = totalEntry / this.merchantFilterRequest.size;
     } else {
-      this.numOfPages = 1 + Math.floor(totalEntry / this.terminalFilterRequest.size);
+      this.numOfPages = 1 + Math.floor(totalEntry / this.merchantFilterRequest.size);
     }
   }
 
   nextPage(): void {
-    if (this.terminalFilterRequest.page + 1 < this.numOfPages) {
-      this.terminalFilterRequest.page = this.terminalFilterRequest.page + 1;
-      this.getTerminals();
+    if (this.merchantFilterRequest.page + 1 < this.numOfPages) {
+      this.merchantFilterRequest.page = this.merchantFilterRequest.page + 1;
+      this.getMerchants();
     }
   }
 
   previousPage(): void {
-    if (this.terminalFilterRequest.page + 1 > 1) {
-      this.terminalFilterRequest.page = this.terminalFilterRequest.page - 1;
-      this.getTerminals();
+    console.log("size page" +this.merchantFilterRequest.size);
+    if (this.merchantFilterRequest.page + 1 > 1) {
+      this.merchantFilterRequest.page = this.merchantFilterRequest.page - 1;
+      this.getMerchants();
     }
   }
 
   getSize(size: number): void {
-    this.terminalFilterRequest.size = size;
-    this. getTerminals();
+    this.merchantFilterRequest.size = size;
+    this. getMerchants();
   }
 
 
@@ -351,4 +353,51 @@ public multi = [
 ];
 
   
+}
+
+
+
+const merchantSingle = {
+  "_id": "00637b2a-158d-465c-8c35-d2290c3a6ab8",
+  "businessId": "",
+  "merchantId": "SUB-MERC0000023",
+  "merchantName": null,
+  "contactTitle": "Mr",
+  "contactName": "Sabastine Otem",
+  "mobilePhone": "07037626977",
+  "email": "sabbyboy93@gmail.com",
+  "emailAlerts": "",
+  "physicalAddr": "Splash 155 Complex Km 47, Lekki-Epe Expressway, Oko-Ado, Lagos State, Nigeria",
+  "stateCode": "",
+  "lga": "",
+  "postCode": "",
+  "url": "",
+  "businessOccupationCode": "",
+  "merchantCategoryCode": "",
+  "terminalOwnerCode": "",
+  "ptsp": "",
+  "visaAcquirerIdNumber": "000000",
+  "verveAcquirerIdNumber": "000000",
+  "mastercardAcquirerIdNumber": "000000",
+  "bankCode": "000013",
+  "bankAccNo": "0170252417",
+  "bankType": "GTBANK PLC",
+  "accountName": "Sabastine Otem",
+  "ptspCode": "03",
+  "connected": true,
+  "active": true,
+  "dateCreated": "2024-02-17 10:21:09",
+  "dateModified": "2024-02-17 04:44:01",
+  "lastActiveDate": "2024-02-17 10:21:09",
+  "walletActive": true,
+  "walletId": "65d07a86dcc8576b9812290c",
+  "secondaryMerchantId": "07613400000BLN2",
+  "createdDateConverter": [
+      2024,
+      2,
+      17,
+      10,
+      21,
+      9
+  ]
 }

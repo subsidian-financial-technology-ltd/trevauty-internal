@@ -29,6 +29,8 @@ import { ScaleLinear, ScalePoint, ScaleTime, ScaleBand } from 'd3-scale';
 import { CurveFactory } from 'd3-shape';
 import { BaseType } from 'd3-selection';
 import { ClientDetailComponent } from './components/dashboard/client-detail/client-detail.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -62,7 +64,8 @@ import { ClientDetailComponent } from './components/dashboard/client-detail/clie
     MatFormFieldModule,
     MatInputModule,
     NgxChartsModule,
-    
+    NgbDropdownModule,
+    NgbModule
 
   ],
   providers: [],

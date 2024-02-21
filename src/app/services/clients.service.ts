@@ -64,20 +64,46 @@ export class ClientsService {
     
     // throw new Error('Method not implemented.');
   }
+
+  getMerchantById(merchantId: number): any {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/internal/profile?merchantId=${merchantId}`,{body:{}});
+  }
   
 
 
-  getTerminal1(): Observable<any> {
-    return this.http.get<any>('assets/data/terminalData1.json');
+  getTerminalPerMerchant(merchantId: string, page: number , size: number): Observable<any> {
+    return this.http.post<any>(`${baseURL}api/v1/terminal/terminals-per-merchant?merchantId=${merchantId}&page=${page}&size=${size}`, {body:{}});
   }
 
   // getUsers(): Observable<any> {
   //   return this.http.get<any>('assets/data/userData.json');
   // }
 
+  // getUsers(): Observable<any> {
+  //   return this.http.get<any>('https://fakestoreapi.com/products');
+  // }
+
   getUsers(): Observable<any> {
-    return this.http.get<any>('https://fakestoreapi.com/products');
+    return this.http.post<any>(`${baseURL}api/v1/internal/profile`, {body:{}});
   }
+
+  getMerchants(page: number, size: number): Observable<any> {
+    return this.http.post<any>(`${baseURL}api/v1/internal/profile?page=${page}&size=${size}`, {body:{}});
+  }
+
+  getMerchantsTransactions(page: number, size: number, merchantId: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/analytic/merchant-transaction?merchantId=${merchantId}&page=${page}&size=${size}`, {body:{}} );
+  }
+
+  
 
   getUsersList(): Observable<any> {
     return this.http.get<any>('assets/data/usersList.json');

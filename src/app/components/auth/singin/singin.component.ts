@@ -87,7 +87,7 @@ resetFormInputs() {
 onSubmit(user: any): void {
 console.log(this.formSubmitted);
   this.formSubmitted = true;
-  if (this.authForm.valid) {
+  if (!this.authForm.valid) {
     console.log({ user });
     this.authService.accountLogin(this.authForm.value).subscribe({
       next: (response) => {

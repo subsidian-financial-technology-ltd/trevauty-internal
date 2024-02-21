@@ -172,13 +172,13 @@
                             User
                         </th>
                         <th scope="col" class="p-[2rem]">
-                            Role
+                            Recent Active Date
                         </th>
                         <th scope="col" class="p-[2rem]">
-                            Plan
+                            Merchant ID
                         </th>
                         <th scope="col" class="p-[2rem]">
-                            Billing
+                            Bank Name
                         </th>
                         <th scope="col" class="p-[2rem]">
                             Status
@@ -189,7 +189,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let terminal of data"
+                    <tr *ngFor="let merchant of merchants"
                         class="bg-[#fff] border-b  hover:bg-gray-50 ">
                         <td class="w-4 p-[2rem]">
                             <div class="flex items-center">
@@ -204,69 +204,87 @@
                                     <img class="h-full" src="/assets/images/Avatar (1).png" alt="">
                                 </div>
                                 <div class="p-0">
-                                    <span class="leading-0">Jordan Stevenson</span><br>
-                                    <span class="text-[grey] leading-0">@brossiter15</span>
+                                    <span class="leading-0">{{merchant.contactName}}</span><br>
+                                    <span class="text-[grey] leading-0">{{merchant.email}}</span>
                                 </div>
                             </div>
-                            {{terminal.paymentId}}
+                            {{merchant.paymentId}}
                         </td>
-                        <td class="px-[2rem]">
+                        <!-- <td class="px-[2rem]">
                             <div class="flex items-center gap-[1rem]">
-                                <div *ngIf="terminal.role === 'subscriber' ">
+                                <div *ngIf="merchant.role === 'subscriber' ">
                                     <div class="bg-[#edeaf7] p-[1rem] rounded-[50%]">
                                         <img src="/assets/images/bx-user.png" alt="">
                                     </div>
                                 </div>
-                                <div *ngIf="terminal.role === 'editor'">
+                                <div *ngIf="merchant.role === 'editor'">
                                     <div class="bg-[#edeaf7] p-[1rem] rounded-[50%]">
                                         <img src="/assets/images/bx-edit.png" alt="">
                                     </div>
                                 </div>
-                                <div *ngIf="terminal.role === 'maintainer'">
+                                <div *ngIf="merchant.role === 'maintainer'">
                                     <div class="bg-[#edeaf7] p-[1rem] rounded-[50%]">
                                         <img src="/assets/images/BarChart.png" alt="">
                                     </div>
                                 </div>
-                                <div *ngIf="terminal.role === 'author'">
+                                <div *ngIf="merchant.role === 'author'">
                                     <div class="bg-[#edeaf7] p-[1rem] rounded-[50%]">
                                         <img src="/assets/images/bx-cog.png" alt="">
                                     </div>
                                 </div>
                                 <div>
-                                    {{terminal.role}}
+                                    {{merchant.role}}
 
                                 </div>
                             </div>
+                        </td> -->
+
+                        <td class="px-[2rem] whitespace-nowrap">
+                            {{merchant.lastActiveDate}}                               
+                        </td>
+                        <td class="px-[2rem] whitespace-nowrap">
+                            {{merchant.merchantId}}
                         </td>
                         <td class="px-[2rem]">
-                            {{terminal.plan}}
-                        </td>
-                        <td class="px-[2rem]">
-                            {{terminal.billing}}
+                            {{merchant.bankType}}
 
                         </td>
 
                         <td class="px-[1rem]">
-                            <div *ngIf="terminal.status === 'PENDING' "
+                            <div *ngIf="merchant.walletActive"
                                 class="bg-[lightgrey] p-[1rem] py-[0.5rem] flex items-center justify-center w-[120px] gap-[1rem] rounded-[4px]">
-                                <span class="">{{terminal.status}}</span>
+                                <span class="">Active</span>
                             </div>
 
-                            <div *ngIf="terminal.status === 'ACTIVE' "
+                            <div *ngIf="!merchant.walletActive"
                                 class="bg-[#e9dffc] p-[1rem] py-[0.5rem] flex items-center justify-center w-[120px] gap-[1rem] rounded-[4px]">
-                                <span class="text-[#7b57fc]">{{terminal.status}}</span>
+                                <span class="text-[#7b57fc]">Inactive</span>
                             </div>
 
                         </td>
 
-                        <td class="px-[2rem]">
-                            <i class="fa fa-ellipsis-v ml-[10px]"></i>
+                        <td class="px-[2rem] p-[1rem] flex gap-[3rem]">
+                            <div ngbDropdown container="body">
+                                <button type="button" class="" ngbDropdownToggle>
+                                    Actions
+                                </button>
+                                <div class="rounded-[8px] px-[1rem]" ngbDropdownMenu>
+                                    <div class="mb-[1rem]">
+                                        <button class="text-[12px] leading-[2rem]" (click)="showDetails(merchant.merchantId)"  ngbDropdownItem>View merchant</button>
+
+                                    </div>
+                                    <div>
+                                        <button class="text-[12px] leading-[2rem]"  ngbDropdownItem>Some Other</button>
+
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
 
                 </tbody>
             </table>
-            <div class="mt-[4rem] bg-[#fff] flex  p-[1rem] justify-end">
+            <!-- <div class="mt-[4rem] bg-[#fff] flex  p-[1rem] justify-end">
                 <div class="flex items-center gap-[2rem]">
                     <div class="p-[1rem] py-[0.5rem] flex items-center bg-[#fff] rounded-[8px]">
                         <span class="whitespace-nowrap">Rows per page: </span>
@@ -295,7 +313,35 @@
                     </div>
                 </div>
 
+            </div> -->
+
+
+            <div class="mt-[4rem] bg-[#fff] flex justify-between items-center p-[1rem] px-[2rem]">
+                <div class="flex items-center gap-[1rem]">
+                    <span> {{totalNumOfEntry}} Result</span>
+    
+                    <div class="p-[1rem] py-[0.5rem] flex items-center bg-[#fff] rounded-[12px]">
+                        <span class="whitespace-nowrap">Rows per page: </span>
+                        <select (change)="getSize(merchantFilterRequest.size)" [(ngModel)]="merchantFilterRequest.size"
+                            class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            <option value=5 selected>5</option>
+                            <option value=10>10</option>
+                            <option value=20>20</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="flex justify-end gap-[2rem]">
+                    <div (click)="previousPage()" class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
+                        Previous
+                    </div>
+                    <div (click)="nextPage()" class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
+                        Next
+                    </div>
+                </div>
             </div>
+
+
         </div>
     </div>
 </div>

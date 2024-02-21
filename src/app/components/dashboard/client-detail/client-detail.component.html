@@ -1,9 +1,4 @@
-<div>
-    <h2>User Details</h2>
-    <p>ID: {{ product.price }}</p>
-    <p>Name: {{ product.title }}</p>
-    <p>Email: {{ product.description }}</p>
-  </div>
+
 
 
 
@@ -15,7 +10,7 @@
             <div class="bg-[#fff] py-[3rem]">
                 <div class="flex flex-col items-center gap-[0.5rem]">
                     <img src="assets/images/Gravatar1.png" alt="">
-                    <h1>{{terminal.fullName}}</h1>
+                    <h1>{{merchant.contactName}}</h1>
                     <h3 class="text-[#7535FD] bg-[#CDB6FE] p-[0.5rem] rounded-[4px]">{{terminal.role}}</h3>
                 </div>
                 <div class="flex gap-[1rem] p-[2rem] justify-center">
@@ -41,14 +36,14 @@
 
                 <div class="w-[80%] mx-auto">
                     <h1 class="py-[1rem] border-b-[1px] w-full">Details</h1>
-                    <div class="text-[#7f98b1] p-2">Username: {{terminal.userName}}</div>
-                    <div class="text-[#7f98b1] p-2">Billing Email: {{terminal.email}}</div>
-                    <div class="text-[#7f98b1] p-2">Status: {{terminal.status}}</div>
-                    <div class="text-[#7f98b1] p-2">Role: {{terminal.enterprise}}</div>
-                    <div class="text-[#7f98b1] p-2">BVN : {{terminal.bvn}}</div>
-                    <div class="text-[#7f98b1] p-2">Contact: {{terminal.contact}}</div>
-                    <div class="text-[#7f98b1] p-2">Language: {{terminal.language}}</div>
-                    <div class="text-[#7f98b1] p-2">Location: {{terminal.location}}</div>
+                    <div class="text-[#7f98b1] p-2 whitespace-nowrap">Username: <span class="text-[#000]"> {{merchant.contactName}}</span></div>
+                    <div class="text-[#7f98b1] p-2 whitespace-nowrap">Email: <span class="text-[#000]">{{merchant.email}}</span></div>
+                    <div class="text-[#7f98b1] p-2 whitespace-nowrap">Status: <span class="text-[#000]"> {{merchant.status}}</span></div>
+                    <div class="text-[#7f98b1] p-2 whitespace-nowrap">Role: <span class="text-[#000]"> {{merchant.enterprise}}</span></div>
+                    <div class="text-[#7f98b1] p-2 whitespace-nowrap">BVN : <span class="text-[#000]"> {{merchant.bvn}}</span></div>
+                    <div class="text-[#7f98b1] p-2 whitespace-nowrap">Contact: <span class="text-[#000]"> {{merchant.mobilePhone}}</span></div>
+                    <div class="text-[#7f98b1] p-2 whitespace-nowrap">Bank Name: <span class="text-[#000]"> {{merchant.bankType}}</span></div>
+                    <div class="text-[#7f98b1] p-2 ">Location: <span class="text-[#000]"> {{merchant.physicalAddr}}</span></div>
                 </div>
                 <div class="flex gap-[2rem] justify-center p-[2rem]">
                     <button class="bg-[#7535FD] text-[#fff] rounded-[4px] px-[1rem] py-[0.5rem]">EDIT</button>
@@ -129,10 +124,13 @@
                                 <th scope="col" class="p-[2rem]">
                                     active HOURS
                                 </th>
+                                <th scope="col" class="p-[2rem]">
+                                    Revenue
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let terminal of terminalData1"
+                            <tr *ngFor="let terminal of terminalsPerMerchant"
                                 class="bg-[#fff] border-b  hover:bg-gray-50 ">
                                 <td scope="row"
                                     class="p-[1rem] font-medium text-gray-900 whitespace-nowrap ">
@@ -141,7 +139,7 @@
                                             <img class="h-full" src="/assets/images/{{terminal.image}}" alt="">
                                         </div>
                                         <div class="p-0">
-                                            <span class="leading-0 ">{{terminal.name}}</span><br>
+                                            <span class="leading-0 ">{{terminal.visitors}}</span><br>
                                             <span class="text-[grey] leading-0">{{terminal.project}}</span>
                                         </div>
                                     </div>
@@ -150,49 +148,48 @@
                                     {{terminal.transactionValue}}/{{terminal.transactionAggregate}}
                                 </td>
                                 <td class="p-[1rem]">
-                                    {{terminal.progress}}%
+                                    {{terminal.conversion}}%
                                     <div class="w-full bg-[#EBEEF0] h-[5px] rounded-[8px]">
-                                        <div [style.width.%]="terminal.progress"
+                                        <div [style.width.%]="terminal.conversion"
                                             class="h-[100%] bg-[#7535FD] rounded-[8px]"></div>
                                     </div>
                                 </td>
                                 <td class="p-[1rem]">
-                                    {{terminal.activeHours}}
+                                    {{terminal.sales}}
+                                </td>
+                                <td class="p-[1rem]">
+                                    {{terminal.revenues}}
                                 </td>
                             </tr>
 
                         </tbody>
                     </table>
-                    <div class="bg-[#fff] flex p-[1rem] justify-end">
-                        <div class="flex items-center gap-[2rem]">
-                            <div class="p-[1rem] py-[0.5rem] flex items-center bg-[#fff] rounded-[8px]">
+                    
+                    <div class="mt-[4rem] bg-[#fff] flex justify-between items-center p-[1rem] px-[2rem]">
+                        <div class="flex items-center gap-[1rem]">
+                            <span> {{totalNumOfTransactionEntry}} Result</span>
+            
+                            <div class="p-[1rem] py-[0.5rem] flex items-center bg-[#fff] rounded-[12px]">
                                 <span class="whitespace-nowrap">Rows per page: </span>
-                                <select id="countries"
-                                    class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-
-                                    <option selected>
-                                        <div><img src="/assets/images/flag.png" alt=""></div>
-                                        <span>10</span>
-                                    </option>
-                                    <option value="10">10</option>
-                                    <option value="20">20</option>
-                                    <option value="30">30</option>
+                                <select (change)="getTerminalSize(terminalFilterRequest.size)" [(ngModel)]="terminalFilterRequest.size"
+                                    class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    <option value=5 selected>5</option>
+                                    <option value=10>10</option>
+                                    <option value=20>20</option>
                                 </select>
                             </div>
-                            <div>
-                                1-5 of 13
+                        </div>
+            
+                        <div class="flex justify-end gap-[2rem]">
+                            <div (click)="terminalPreviousPage()" class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
+                                Previous
                             </div>
-                            <div class="flex justify-end md:mr-[2rem] items-center">
-                                <div class="p-[1rem] py-[0.5rem] rounded-[4px]">
-                                    <img src="assets/images/fa-arrow-left.png" alt="">
-                                </div>
-                                <div class="p-[1rem] py-[0.5rem] rounded-[4px]">
-                                    <img src="assets/images/fa-arrow-right.png" alt="">
-                                </div>
+                            <div (click)="terminalNextPage()" class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
+                                Next
                             </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
 
@@ -244,14 +241,14 @@
                                 <td scope="row"
                                     class="p-[1rem] font-medium text-gray-900 whitespace-nowrap ">
                                     <div class="flex gap-[1rem]">
-                                        {{transaction.id}}
+                                        {{transaction.terminalId}}
                                     </div>
                                 </td>
                                 <td class="p-[1rem]">
-                                    {{transaction.total}}
+                                    {{transaction.amount}}
                                 </td>
                                 <td class="p-[1rem]">
-                                    {{transaction.issuedDate}}%
+                                    {{transaction.createdAt}}
                                 </td>
                                 <td class="p-[1rem]">
                                     <div class="flex gap-[1rem]">
@@ -270,48 +267,34 @@
 
                         </tbody>
                     </table>
-                    <div class="bg-[#fff] flex  p-[1rem] justify-end">
-                        <div class="flex items-center gap-[2rem]">
-                            <div class="p-[1rem] py-[0.5rem] flex items-center bg-[#fff] rounded-[8px]">
+                    <div class="mt-[4rem] bg-[#fff] flex justify-between items-center p-[1rem] px-[2rem]">
+                        <div class="flex items-center gap-[1rem]">
+                            <span> {{totalNumOfTerminalEntry}} Result</span>
+            
+                            <div class="p-[1rem] py-[0.5rem] flex items-center bg-[#fff] rounded-[12px]">
                                 <span class="whitespace-nowrap">Rows per page: </span>
-                                <select id="countries"
-                                    class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-
-                                    <option selected>
-                                        <div><img src="/assets/images/flag.png" alt=""></div>
-                                        <span>10</span>
-                                    </option>
-                                    <option value="10">10</option>
-                                    <option value="20">20</option>
-                                    <option value="30">30</option>
+                                <select (change)="getTransactionSize(transactionFilterRequest.size)" [(ngModel)]="transactionFilterRequest.size"
+                                    class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    <option value=5 selected>5</option>
+                                    <option value=10>10</option>
+                                    <option value=20>20</option>
                                 </select>
                             </div>
-                            <div>
-                                1-5 of 13
+                        </div>
+                        <div class="flex justify-end gap-[2rem]">
+                            <div (click)="transactionPreviousPage()" class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
+                                Previous
                             </div>
-                            <div class="flex justify-end md:mr-[2rem] items-center">
-                                <div class="p-[1rem] py-[0.5rem] rounded-[4px]">
-                                    <img src="assets/images/fa-arrow-left.png" alt="">
-                                </div>
-                                <div class="p-[1rem] py-[0.5rem] rounded-[4px]">
-                                    <img src="assets/images/fa-arrow-right.png" alt="">
-                                </div>
+                            <div (click)="transactionNextPage()" class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
+                                Next
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
         </div>
 
     </div>
-
-
-
-
-
 
 
 </div>

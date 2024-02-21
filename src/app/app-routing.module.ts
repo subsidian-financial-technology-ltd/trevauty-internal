@@ -20,7 +20,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: OverviewComponent },
       { path: 'clients', component: ClientsComponent},
-      { path: 'clients/:id', component: ClientDetailComponent }, 
+      { path: 'clients/:merchantId', component: ClientDetailComponent }, 
 
       { path: 'api-documentation', component: DocumentationComponent }
     ],
