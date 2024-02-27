@@ -58,7 +58,6 @@ showDetails(user: any): void {
 }
 
 
-
   ngOnInit(): void {
     this.getMerchants();
     // this.getUsers();

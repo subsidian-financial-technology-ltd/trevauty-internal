@@ -39,11 +39,11 @@ export const navbarData: INavbarData[] = [
         //     }
         // ]
     },
-    {
-        routeLink: 'api-documentation',
-        icon: 'assets/icons/Document.png',
-        label: 'Api Documentation',
-    },
+    // {
+    //     routeLink: 'api-documentation',
+    //     icon: 'assets/icons/Document.png',
+    //     label: 'Api Documentation',
+    // },
     {
         routeLink: 'analytic',
         icon: 'assets/icons/Wallet.png',
@@ -64,11 +64,11 @@ export const navbarData: INavbarData[] = [
         //     }
         // ]
     },
-    {
-        routeLink: 'refund-transaction',
-        icon: 'assets/icons/Stroke 1.png',
-        label: 'Refund Transactions'
-    },
+    // {
+    //     routeLink: 'refund-transaction',
+    //     icon: 'assets/icons/Stroke 1.png',
+    //     label: 'Refund Transactions'
+    // },
     // {
     //     routeLink: 'refund',
     //     icon: 'fal fa-camera',

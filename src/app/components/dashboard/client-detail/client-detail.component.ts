@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClientsService } from 'src/app/services/clients.service';
 
 @Component({
@@ -52,7 +52,7 @@ export class ClientDetailComponent {
 
 
 
-  constructor(private route: ActivatedRoute, private clientService: ClientsService) { }
+  constructor(private route: ActivatedRoute, private clientService: ClientsService, private router: Router) { }
 
   ngOnInit(): void {
     this.getTerminalDetail();
@@ -209,6 +209,10 @@ export class ClientDetailComponent {
     console.log(this.terminalFilterRequest.page, this.terminalFilterRequest.size);
     this.clientService.getTerminalPerMerchant(this.merchantId, this.terminalFilterRequest.page, this.terminalFilterRequest.size).subscribe({
       next: (response: any) => {
+        console.log("reponse 2")
+        console.log(response);
+        console.log("reponse 2")
+
         this.terminalApiResponse = response;
         // this.data = this.terminalApiResponse?.data?.content;
         this.terminalsPerMerchant = response?.data?.content;
@@ -244,6 +248,12 @@ export class ClientDetailComponent {
   getTerminalSize(size: number): void {
     this.terminalFilterRequest.size = size;
     this. getTerminalPerMerchant();
+  }
+
+
+  showTransactionDetails(transaction: any): void {
+    console.log(transaction);
+    this.router.navigate([`dashboard/clients/:${this.merchantId}`, transaction]); 
   }
 
 }

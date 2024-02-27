@@ -31,6 +31,7 @@ import { BaseType } from 'd3-selection';
 import { ClientDetailComponent } from './components/dashboard/client-detail/client-detail.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TransactionComponent } from './components/dashboard/transaction/transaction.component';
 
 
 
@@ -51,6 +52,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SublevelMenuComponent,
     DocumentationComponent,
     ClientDetailComponent,
+    TransactionComponent,
   ],
   imports: [
     BrowserModule,

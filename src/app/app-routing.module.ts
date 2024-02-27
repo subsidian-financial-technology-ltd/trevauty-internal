@@ -9,6 +9,7 @@ import { OverviewComponent } from './components/dashboard/overview/overview.comp
 import { ClientsComponent } from './components/dashboard/clients/clients.component';
 import { DocumentationComponent } from './components/dashboard/documentation/documentation.component';
 import { ClientDetailComponent } from './components/dashboard/client-detail/client-detail.component';
+import { TransactionComponent } from './components/dashboard/transaction/transaction.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -21,8 +22,9 @@ const routes: Routes = [
       { path: 'overview', component: OverviewComponent },
       { path: 'clients', component: ClientsComponent},
       { path: 'clients/:merchantId', component: ClientDetailComponent }, 
+      { path: 'clients/:merchantId/:transaction', component: TransactionComponent }, 
 
-      { path: 'api-documentation', component: DocumentationComponent }
+      // { path: 'api-documentation', component: DocumentationComponent }
     ],
 
   },
