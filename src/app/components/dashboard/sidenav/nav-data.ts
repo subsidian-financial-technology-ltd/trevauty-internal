@@ -78,8 +78,12 @@ export const navbarData: INavbarData[] = [
         routeLink: 'profile',
         icon: 'assets/icons/Profile.png',
         label: 'Profile'
+    },
+    {
+        routeLink: 'settings',
+        icon: 'assets/icons/Profile.png',
+        label: 'Setting'
     }
-    ,
     // {
     //     routeLink: 'Route4',
     //     icon: 'fal fa-cog',

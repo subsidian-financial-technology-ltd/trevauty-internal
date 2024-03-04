@@ -5,7 +5,7 @@
         "conversion":0,
         "total": 56.00,
         "rate": 0.5,
-        "status": "PENDING",
+        "status": "Pending",
         "rating": 1,
         "option": ""
     },
@@ -15,7 +15,7 @@
         "conversion":12.3,
         "total": 56.00,
         "rate": 0.5,
-        "status": "PENDING",
+        "status": "Pending",
         "rating": 2,
         "option": ""
     },
@@ -25,7 +25,7 @@
         "conversion":12.3,
         "total": 56.00,
         "rate": 0.5,
-        "status": "ACTIVE",
+        "status": "Approved",
         "rating": 3,
         "option": ""
     },
@@ -35,7 +35,7 @@
         "conversion":12.3,
         "total": 56.00,
         "rate": 0.5,
-        "status": "PENDING",
+        "status": "Pending",
         "rating": 4,
         "option": ""
     },
@@ -45,7 +45,7 @@
         "conversion":0,
         "total": 56.00,
         "rate": 0.5,
-        "status": "PENDING",
+        "status": "Pending",
         "rating": 5,
         "option": ""
     },
@@ -55,7 +55,7 @@
         "conversion":12.3,
         "total": 56.00,
         "rate": 0.5,
-        "status": "PENDING",
+        "status": "Pending",
         "rating": 4,
         "option": ""
     },
@@ -65,7 +65,7 @@
         "conversion":-12.3,
         "total": 56.00,
         "rate": 0.5,
-        "status": "PENDING",
+        "status": "Pending",
         "rating": 3,
         "option": ""
 

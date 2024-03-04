@@ -1,0 +1,247 @@
+<div class="p-[4rem] bg-[#F5F4F7]">
+
+    <div class="flex justify-between items-center mb-[1rem]">
+        <div class="flex justify-between items-center w-[100%]">
+            <div class="">
+
+                <div class="p-[0.2rem] py-[0.5rem] border flex items-center bg-[#fff] rounded-[8px]">
+                    <select id="countries"
+                        class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+
+                        <option selected>
+                            <span>This Month</span>
+                        </option>
+                        <option value="read">read</option>
+                        <option value="write">write</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="flex justify-center gap-6 items-center bg-[#7535FD] p-[1rem] px-[2rem] rounded-[8px]">
+                <div class="flex justify-center h-[20px]">
+                    <img class="h-[100%]" src="/assets/images/downloanIcon.png" alt="">
+                </div>
+                <span class="text-[#fff] ">
+                    Download Report
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="relative overflow-x-auto sm:rounded-lg ">
+
+        <table class="w-full text-[14px] leading-[150%]  text-[#4B5563] text-left">
+            <thead
+                class="text-[14px] italic font-[100]  text-[#374151] uppercase bg-[#fff] ">
+                <tr class="border-b">
+                    <th scope="col" class="p-[2rem]">
+                        <div class="flex items-center">
+                            <input id="checkbox-all-search" type="checkbox"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 ">
+                            <label for="checkbox-all-search" class="sr-only">Payment ID</label>
+                        </div>
+                    </th>
+                    <th scope="col" class="p-[2rem]">
+                        Client Name
+                    </th>
+                    <th scope="col" class="p-[2rem]">
+                        Transaction
+                    </th>
+                    <th scope="col" class="p-[2rem]">
+                        Conversion
+                    </th>
+                    <th scope="col" class="p-[2rem]">
+                        Total
+                    </th>
+                    <th scope="col" class="p-[2rem]">
+                        Rate
+                    </th>
+                    <th scope="col" class="p-[2rem]">
+                        Status
+                    </th>
+                    <th scope="col" class="p-[2rem]">
+                        Rating
+                    </th>
+                    <th scope="col" class="p-[2rem]">
+                        Options
+                    </th>
+                    <th scope="col" class="p-[2rem]">
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let terminal of usersList; let i = index"
+                    class="bg-[#fff] border-b  hover:bg-gray-50 ">
+                    <td class="w-4 p-[2rem]">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 ">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <td scope="row" class="px-[2rem] font-medium text-gray-900 whitespace-nowrap ">
+                        <div class="flex gap-[1rem] items-center">
+                            <span class="p-[0.5rem] h-[30px] w-[30px] text-center rounded-[8px]" [ngClass]="{
+                                'bg-[#BBD2F8] text-[#217EFD]': (i + 1) % 2 == 1,
+                                'bg-[#F8E2C0] text-[#FFB536]': (i + 1) % 2 == 0,
+                                'bg-[#EEC7F4] text-[#DB5AEE]': (i + 1) % 3 == 0,
+                            }">{{i + 1}}</span>
+                            <span>{{terminal.name}}</span>
+                        </div>
+                    </td>
+                    <td class="px-[2rem]">
+                        <div class="border inline-block p-[0.3rem] px-[0.5rem] rounded-[8px]">
+                            {{terminal.transaction}}
+                        </div>
+                    </td>
+                    <td class="px-[2rem]">
+                        <div class="flex items-center gap-[1rem]">
+                            <div [ngClass]="{
+                                'bg-[#BAF3E0]': terminal.conversion > 0,
+                                'bg-[#E6ECF0]': terminal.conversion === 0,
+                                'bg-[#f9e2e2]': terminal.conversion < 0
+                            }" class="p-[0.5rem] rounded-[50%]">
+                                <img *ngIf="terminal.conversion > 0" src="/assets/images/arrow1.png" alt="">
+                                <img *ngIf="terminal.conversion < 0" src="/assets/images/arrow2.png" alt="">
+                                <img *ngIf="terminal.conversion == 0" src="/assets/images/arrow3.png" alt="">
+
+                            </div>
+                            <span [ngClass]="{
+                                'text-[#1AD598]': terminal.conversion > 0,
+                                'text-[grey]': terminal.conversion === 0,
+                                'text-[#EA3A3D]': terminal.conversion < 0
+                              }">
+                                {{terminal.conversion}}</span>
+                        </div>
+                    </td>
+                    <td class="px-[2rem]">
+                        ${{terminal.total}}
+
+                    </td>
+                    <td class="px-[2rem]">
+                        {{terminal.rate}}
+
+                    </td>
+                    <td class="px-[1rem]">
+                        <div *ngIf="terminal.status === 'ACTIVE' "
+                            class="bg-[#bff9e6] p-[1rem] py-[0.5rem] flex items-center justify-center w-[120px] gap-[1rem] rounded-[4px]">
+                            <span class="text-[#1AD598]">{{terminal.status}}</span>
+                        </div>
+                        <div *ngIf="terminal.status === 'PENDING' "
+                            class="bg-[#edecec] p-[1rem] py-[0.5rem] flex items-center justify-center w-[120px] gap-[1rem] rounded-[4px]">
+                            <span class="text-[grey]">{{terminal.status}}</span>
+                        </div>
+
+                        <div *ngIf="terminal.status === 'unpaid' "
+                            class="bg-[#f9c0c0] p-[1rem] py-[0.5rem] flex items-center justify-center w-[120px] gap-[1rem] rounded-[4px]">
+                            <span class="text-[#EA3A3D]">{{terminal.status}}</span>
+                        </div>
+
+                    </td>
+
+                    <td class="px-[1rem]">
+                        <ng-container *ngFor="let index of getRatings(terminal.rating)">
+                            <i class="fa fa-star text-[#FFB536]" aria-hidden="true"></i>
+                        </ng-container>
+                        <ng-container *ngFor="let index of getRatings(5 - terminal.rating)">
+                            <i class="fa fa-star text-[#99B2C6]" aria-hidden="true"></i>
+                        </ng-container>
+
+                    </td>
+
+                    <td class="px-[2rem]">
+                        <div class="p-[0.2rem] py-[0.5rem] border flex items-center bg-[#fff] rounded-[8px]">
+                            <select id="countries"
+                                class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+
+                                <option selected>
+                                    <div><img src="/assets/images/flag.png" alt=""></div>
+                                    <span>Options</span>
+                                </option>
+                                <option value="read">read</option>
+                                <option value="write">write</option>
+                            </select>
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="h-[30%] m-auto p-[1rem]">
+                            <img class="h-[30px] cursor-pointer" src="assets/images/dl_btn.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="mt-[4rem] bg-[#fff] flex  p-[1rem] justify-end">
+            <div class="flex items-center gap-[2rem]">
+                <div class="p-[1rem] py-[0.5rem] flex items-center bg-[#fff] rounded-[8px]">
+                    <span class="whitespace-nowrap">Rows per page: </span>
+                    <select id="countries"
+                        class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+
+                        <option selected>
+                            <div><img src="/assets/images/flag.png" alt=""></div>
+                            <span>10</span>
+                        </option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+                <div>
+                    1-5 of 13
+                </div>
+                <div class="flex justify-end gap-[2rem] md:mr-[2rem]">
+                    <div class="p-[1rem] py-[0.5rem] rounded-[4px]">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="p-[1rem] py-[0.5rem] rounded-[4px]">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-2 ">
+        <div>
+
+            <ngx-charts-pie-chart
+                [scheme]="colorScheme"
+                [results]="single"
+                [legend]="showLegend"
+                [labels]="showLabels"
+                [doughnut]="doughnut"
+                [gradient]="gradient"
+              >
+            </ngx-charts-pie-chart>
+
+        </div>
+        <div>
+            <ngx-charts-bar-vertical
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="single"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            
+            >
+            </ngx-charts-bar-vertical>
+        </div>
+    </div>
+
+</div>
+
+
+<div [hidden]="!chart">
+    <canvas id="canvas"></canvas>
+  </div>

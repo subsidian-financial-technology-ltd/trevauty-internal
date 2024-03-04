@@ -85,16 +85,17 @@
                 <span>Add New User </span>
                 <img src="assets/images/forward-arrow.png" alt="">
             </div>
-            <div
+
+            <div (click)="toggleProviderFormModal()"
                 class="bg-[#7535FD] cursor-pointer rounded-[8px] flex gap-[1rem] items-center text-[#fff] p-[1rem] w-[100%]">
-                <img class="h-[50%]" src="assets/images/add-user.png" alt="">
-                <span>Remove User </span>
+                <img class="h-[70%]" src="assets/images/pos.png" alt="">
+                <span>Add Provider</span>
                 <img src="assets/images/forward-arrow.png" alt="">
             </div>
             <div
                 class="bg-[#7535FD] cursor-pointer rounded-[8px] flex gap-[1rem] items-center text-[#fff] p-[1rem] w-[100%]">
-                <img class="h-[70%]" src="assets/images/pos.png" alt="">
-                <span>Disactivate Terminal </span>
+                <img class="h-[50%]" src="assets/images/add-user.png" alt="">
+                <span>Remove User </span>
                 <img src="assets/images/forward-arrow.png" alt="">
             </div>
             <div
@@ -126,7 +127,8 @@
             class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div class="grid place-items-center items-center p-[4rem] w-full">
                 <div class="flex justify-end w-full">
-                    <span class="cursor-pointer" (click)="toggleTerminalFormModal()"><img class="h-[20px]" src="/assets/images/x.png" alt=""></span>
+                    <span class="cursor-pointer" (click)="toggleTerminalFormModal()"><img class="h-[20px]"
+                            src="/assets/images/x.png" alt=""></span>
                 </div>
                 <div class="py-[2rem] grid gap-[1rem]">
                     <div class="text-center text-[16px] font-[500] leading-[30px]">Add Terminal</div>
@@ -141,7 +143,7 @@
 
                         <div class="w-full"
                             [ngClass]="{'has-error': !formData['uName'].valid && formData['uName'].touched}">
-                            <label class="font-[400]" for="fname">Choose a location</label>    
+                            <label class="font-[400]" for="fname">Choose a location</label>
                             <div class="border-none " *ngIf="formData['uName'].touched && formData['uName'].errors">
                                 <div class="shadow-none border-none  text-danger"
                                     *ngIf="formData['uName'].errors['required']">
@@ -156,8 +158,8 @@
                                 <!-- <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
                                     placeholder="Enter  Client's Name" name="uName" formControlName="uName"> -->
 
-                                    <select id="countries"
-                                    class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <select id="countries"
+                                    class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                     <option selected>
                                         <div><img src="/assets/images/flag.png" alt=""></div>
                                         <span>Select Location</span>
@@ -227,7 +229,8 @@
                             </div>
                         </div>
 
-                        <button class="bg-[#7535FD] text-[#fff] text-[2rem] p-[1rem] m-auto w-[100%] rounded-[8px] my-[1rem]">Continue</button>
+                        <button
+                            class="bg-[#7535FD] text-[#fff] text-[2rem] p-[1rem] m-auto w-[100%] rounded-[8px] my-[1rem]">Continue</button>
 
                     </form>
 
@@ -275,7 +278,8 @@
             class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div class="grid place-items-center items-center p-[4rem] w-full">
                 <div class="flex justify-end w-full">
-                    <span class="cursor-pointer" (click)="toggleUserFormModal()"><img class="h-[20px]" src="/assets/images/x.png" alt=""></span>
+                    <span class="cursor-pointer" (click)="toggleUserFormModal()"><img class="h-[20px]"
+                            src="/assets/images/x.png" alt=""></span>
                 </div>
                 <div class="py-[2rem] grid gap-[1rem]">
                     <div class="text-center text-[16px] font-[500] leading-[30px]">Add New User</div>
@@ -289,7 +293,7 @@
 
                         <div class="w-full"
                             [ngClass]="{'has-error': !formData['uName'].valid && formData['uName'].touched}">
-                            <label class="font-[400]" for="fname">Choose a User Category</label>    
+                            <label class="font-[400]" for="fname">Choose a User Category</label>
                             <div class="border-none " *ngIf="formData['uName'].touched && formData['uName'].errors">
                                 <div class="shadow-none border-none  text-danger"
                                     *ngIf="formData['uName'].errors['required']">
@@ -304,8 +308,8 @@
                                 <!-- <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
                                     placeholder="Enter  Client's Name" name="uName" formControlName="uName"> -->
 
-                                    <select id="countries"
-                                    class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <select id="countries"
+                                    class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     <option selected>
                                         <div><img src="/assets/images/flag.png" alt=""></div>
                                         <span>Select Category</span>
@@ -352,7 +356,8 @@
                             </div>
                             <div class="rounded-[8px] border px-[0.5rem] py-[0.8rem] flex justify-between mb-[10px]">
                                 <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
-                                    placeholder="Enter Number of Allocated Terminals" name="uName" formControlName="uName">
+                                    placeholder="Enter Number of Allocated Terminals" name="uName"
+                                    formControlName="uName">
                             </div>
                         </div>
 
@@ -375,7 +380,8 @@
                             </div>
                         </div>
 
-                        <button class="bg-[#7535FD] text-[#fff] text-[2rem] p-[1rem] m-auto w-[100%] rounded-[8px] my-[1rem]">Continue</button>
+                        <button
+                            class="bg-[#7535FD] text-[#fff] text-[2rem] p-[1rem] m-auto w-[100%] rounded-[8px] my-[1rem]">Continue</button>
 
                     </form>
 
@@ -392,3 +398,96 @@
     </div>
 </div>
 <div *ngIf="showUserFormModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div *ngIf="showProviderFormModal"
+    class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-full my-6 mx-auto max-w-3xl">
+        <!--content-->
+        <div
+            class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            <div class="grid place-items-center items-center p-[4rem] w-full">
+                <div class="flex justify-end w-full">
+                    <span class="cursor-pointer" (click)="toggleProviderFormModal()"><img class="h-[20px]"
+                            src="/assets/images/x.png" alt=""></span>
+                </div>
+                <div class="py-[2rem] grid gap-[1rem]">
+                    <div class="text-center text-[16px] font-[500] leading-[30px]">Add Provider</div>
+                </div>
+                <div class="grid gap-[1rem] mt-[2rem] items-center place-items-center">
+
+
+
+                    <form class="w-[30rem]" action="" [formGroup]="providerForm" (ngSubmit)="addProvider()">
+                        <div class="w-full"
+                            [ngClass]="{'has-error': !providerFormData['providerName'].valid && providerFormData['providerName'].touched}">
+                            <div class="border-none "
+                                *ngIf="providerFormData['providerName'].touched && providerFormData['providerName'].errors">
+                                <div class="shadow-none border-none  text-danger"
+                                    *ngIf="providerFormData['providerName'].errors['required']">
+                                    The Provider name is required
+                                </div>
+                                <div class="shadow-none text-danger"
+                                    *ngIf="providerFormData['providerName'].errors['pattern']">
+
+                                    The Provider name is not valid, Numeric data not allowed
+                                </div>
+                            </div>
+                            <div class="rounded-[8px] border px-[0.5rem] py-[0.8rem] flex justify-between mb-[10px]">
+                                <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
+                                    placeholder="Enter  Client's Name" name="providerName"
+                                    formControlName="providerName">
+                            </div>
+                        </div>
+
+
+                        <div class="w-full"
+                            [ngClass]="{'has-error': !providerFormData['oem'].valid && providerFormData['oem'].touched}">
+                            <div class="border-none "
+                                *ngIf="providerFormData['oem'].touched && providerFormData['oem'].errors">
+                                <div class="shadow-none border-none  text-danger"
+                                    *ngIf="providerFormData['oem'].errors['required']">
+                                    The Full Name is required
+                                </div>
+                                <div class="shadow-none text-danger" *ngIf="providerFormData['oem'].errors['pattern']">
+
+                                    The Name is not valid, Numeric data not allowed
+                                </div>
+                            </div>
+                            <div class="rounded-[8px] border px-[0.5rem] py-[0.8rem] flex justify-between mb-[10px]">
+                                <input class=" border-none shadow-none outline-none w-[90%] p-[0.5rem]" type="text"
+                                    placeholder="Enter  Terminal Location" name="oem" formControlName="oem">
+                            </div>
+                        </div>
+
+                        <button
+                            class="bg-[#7535FD] text-[#fff] text-[2rem] p-[1rem] m-auto w-[100%] rounded-[8px] my-[1rem]">Continue</button>
+
+                    </form>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div class="flex items-center justify-end p-6 rounded-b">
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showProviderFormModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>

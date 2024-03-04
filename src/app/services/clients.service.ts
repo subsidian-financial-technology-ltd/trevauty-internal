@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { baseURL } from './utils';
 import { TokenService } from './token.service';
+import { ProviderDetails } from '../types/Type';
 
 @Injectable({
   providedIn: 'root'
@@ -101,6 +102,23 @@ export class ClientsService {
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
     return this.http.post<any>(`${baseURL}api/v1/analytic/merchant-transaction?merchantId=${merchantId}&page=${page}&size=${size}`, {body:{}} );
+  }
+
+
+  addProvider(providerDetails: ProviderDetails): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/provider/add`, {body: providerDetails} );
+  }
+
+  getProviders(): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/provider/fetch`, {body:{}} );
   }
 
   

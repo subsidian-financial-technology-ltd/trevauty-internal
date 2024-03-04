@@ -10,6 +10,13 @@ import { ClientsComponent } from './components/dashboard/clients/clients.compone
 import { DocumentationComponent } from './components/dashboard/documentation/documentation.component';
 import { ClientDetailComponent } from './components/dashboard/client-detail/client-detail.component';
 import { TransactionComponent } from './components/dashboard/transaction/transaction.component';
+import { ProfileComponent } from './components/dashboard/profile/profile.component';
+import { ProfileHomeComponent } from './components/dashboard/profile-home/profile-home.component';
+import { ProfileAuthComponent } from './components/dashboard/profile-auth/profile-auth.component';
+import { ProfileHelpComponent } from './components/dashboard/profile-help/profile-help.component';
+import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
+import { AnalyticsComponent } from './components/dashboard/analytics/analytics.component';
+import { SettingsComponent } from './components/dashboard/settings/settings.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -20,9 +27,23 @@ const routes: Routes = [
     path: 'dashboard', component: DashboardComponent, children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: OverviewComponent },
+      // { path: 'profile', component:  }, 
       { path: 'clients', component: ClientsComponent},
+      { path: 'analytic', component: AnalyticsComponent},
+      { path: 'settings', component: SettingsComponent},
       { path: 'clients/:merchantId', component: ClientDetailComponent }, 
       { path: 'clients/:merchantId/:transaction', component: TransactionComponent }, 
+
+      { path:'profile', component: ProfileComponent, children:[
+        { path: '', component: ProfileHomeComponent, children:[
+          { path:"", redirectTo: 'user', pathMatch: 'full'},
+          { path:"user", component: UserProfileComponent },
+          // { path:"edit-user", component: EditUserFormComponent },
+          { path:"auth", component: ProfileAuthComponent },
+          { path:"help", component:ProfileHelpComponent },
+        ]}
+      ]}
+
 
       // { path: 'api-documentation', component: DocumentationComponent }
     ],

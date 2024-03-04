@@ -32,7 +32,13 @@ import { ClientDetailComponent } from './components/dashboard/client-detail/clie
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TransactionComponent } from './components/dashboard/transaction/transaction.component';
-
+import { ProfileComponent } from './components/dashboard/profile/profile.component';
+import { ProfileHomeComponent } from './components/dashboard/profile-home/profile-home.component';
+import { ProfileAuthComponent } from './components/dashboard/profile-auth/profile-auth.component';
+import { ProfileHelpComponent } from './components/dashboard/profile-help/profile-help.component';
+import { MaterialModule } from './components/dashboard/manage-terminal/material.module';
+import { AnalyticsComponent } from './components/dashboard/analytics/analytics.component';
+import { SettingsComponent } from './components/dashboard/settings/settings.component';
 
 
 
@@ -53,6 +59,12 @@ import { TransactionComponent } from './components/dashboard/transaction/transac
     DocumentationComponent,
     ClientDetailComponent,
     TransactionComponent,
+    ProfileComponent,
+    ProfileHomeComponent,
+    ProfileAuthComponent,
+    ProfileHelpComponent,
+    AnalyticsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +79,14 @@ import { TransactionComponent } from './components/dashboard/transaction/transac
     MatInputModule,
     NgxChartsModule,
     NgbDropdownModule,
-    NgbModule
+    NgbModule,
+
+
+    MaterialModule,
+    // DeactivateTerminalModule,
+    // DeactivateTerminalRouteModule,
+    // ManageTerminalRouteModule,
+    // RefundTransactionModule,
 
   ],
   providers: [],
