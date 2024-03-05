@@ -121,8 +121,6 @@ export class ClientsService {
     return this.http.post<any>(`${baseURL}api/v1/provider/fetch`, {body:{}} );
   }
 
-  
-
   getUsersList(): Observable<any> {
     return this.http.get<any>('assets/data/usersList.json');
   }

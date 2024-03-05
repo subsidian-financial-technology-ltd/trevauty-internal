@@ -16,6 +16,8 @@ export class ClientDetailComponent {
   terminals: any = [];
   transactionApiResponse: any;
   terminalApiResponse: any;
+  deposits:any = [];
+
 
   transactionPage: number = 0;
   transactionSize: number = 10;

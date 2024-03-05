@@ -211,105 +211,150 @@
                 </div>
             </div>
 
+            <div class="grid grid-cols-9 gap-[1rem]">
 
-            <div class="bg-[#fff] w-[90%]">
-                <div class="flex items-center justify-between pb-0  p-[1rem]">
-                    <div class="w-[100%] grid gap-[2rem]  ">
-                        <div class="flex justify-between py-[1rem] ">
-                            <div
-                                class="flex pr-[4rem] justify-center gap-2 items-center bg-[#fff] p-[1rem] rounded-[8px]">
-                                <span class="text-[grey]">
-                                    Transaction List
-                                </span>
-                            </div>
-                            <div class="flex justify-end gap-[1rem] w-[40%]">
+
+                <div class="bg-[#fff] col-span-5">
+                    <div class="flex items-center justify-between pb-0  p-[1rem]">
+                        <div class="w-[100%] grid gap-[2rem]  ">
+                            <div class="flex justify-between py-[1rem] ">
                                 <div
-                                    class="bg-[#7535FD] flex justify-center items-center p-[1rem] text-[#fff] rounded-[8px]">
-                                    <span>EXPORT</span>
-                                    <img src="assets/images/KeyboardArrowDown.png" alt="">
+                                    class="flex pr-[4rem] justify-center gap-2 items-center bg-[#fff] p-[1rem] rounded-[8px]">
+                                    <span class="text-[grey]">
+                                        Transaction List
+                                    </span>
+                                </div>
+                                <div class="flex justify-end gap-[1rem] w-[40%]">
+                                    <div
+                                        class="bg-[#7535FD] flex justify-center items-center p-[1rem] text-[#fff] rounded-[8px]">
+                                        <span>EXPORT</span>
+                                        <img src="assets/images/KeyboardArrowDown.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative overflow-x-auto sm:rounded-lg ">
+
+                        <table class="w-full text-[14px] leading-[150%]  text-[#4B5563] text-left">
+                            <thead class="text-[14px] italic font-[100]  text-[#374151] uppercase bg-[#fff] ">
+                                <tr class="border-b">
+                                    <th scope="col" class="p-[2rem]">
+                                        ID
+                                    </th>
+                                    <th scope="col" class="p-[2rem]">
+                                        TOTAL
+                                    </th>
+                                    <th scope="col" class="p-[2rem]">
+                                        Issued Date
+                                    </th>
+                                    <th scope="col" class="p-[2rem]">
+                                        ACTIONS
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let transaction of transactions"
+                                    class="bg-[#fff] border-b  hover:bg-gray-50 ">
+                                    <td scope="row" class="p-[1rem] font-medium text-gray-900 whitespace-nowrap ">
+                                        <div class="flex gap-[1rem]">
+                                            {{transaction.terminalId}}
+                                        </div>
+                                    </td>
+                                    <td class="p-[1rem]">
+                                        {{transaction.amount}}
+                                    </td>
+                                    <td class="p-[1rem]">
+                                        {{transaction.createdAt}}
+                                    </td>
+                                    <td class="p-[1rem]">
+                                        <div class="flex gap-[1rem]">
+                                            <div>
+                                                <img class="cursor-pointer" src="assets/images/bx-send.png" alt="">
+                                            </div>
+                                            <div>
+                                                <img class="cursor-pointer" src="assets/images/bx-show.png" alt="">
+                                            </div>
+                                            <div>
+                                                <img class="cursor-pointer" src="assets/images/bx-download.png" alt="">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="mt-[4rem] bg-[#fff] flex justify-between items-center p-[1rem] px-[2rem]">
+                            <div class="flex items-center gap-[1rem]">
+                                <span> {{totalNumOfTerminalEntry}} Result</span>
+
+                                <div class="p-[1rem] py-[0.5rem] flex items-center bg-[#fff] rounded-[12px]">
+                                    <span class="whitespace-nowrap">Rows per page: </span>
+                                    <select (change)="getTransactionSize(transactionFilterRequest.size)"
+                                        [(ngModel)]="transactionFilterRequest.size"
+                                        class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                        <option value=5 selected>5</option>
+                                        <option value=10>10</option>
+                                        <option value=20>20</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex justify-end gap-[2rem]">
+                                <div (click)="transactionPreviousPage()"
+                                    class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
+                                    Previous
+                                </div>
+                                <div (click)="transactionNextPage()"
+                                    class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
+                                    Next
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-span-4  bg-[#fff] p-[1rem] py-[2rem]">
+                    <div class="font-NUNITO text-[20px]">My Wallet</div>
 
-                <div class="relative overflow-x-auto sm:rounded-lg ">
+                    <div class="text-center p-[1rem] text-[grey]">Your Balance</div>
+                    <div class="text-center text-[20px]">$3000.00</div>
+                        <div class="p-[2rem]">
+                            <div class="flex justify-between mb-[30px]">
+                                <div class="">
+                                    <p>Deposit</p>
+                                </div>
+                                <div class="">
+                                    <p class="text-[#9155FD]">View All</p>
+                                </div>
+                            </div>
 
-                    <table class="w-full text-[14px] leading-[150%]  text-[#4B5563] text-left">
-                        <thead class="text-[14px] italic font-[100]  text-[#374151] uppercase bg-[#fff] ">
-                            <tr class="border-b">
-                                <th scope="col" class="p-[2rem]">
-                                    ID
-                                </th>
-                                <th scope="col" class="p-[2rem]">
-                                    TOTAL
-                                </th>
-                                <th scope="col" class="p-[2rem]">
-                                    Issued Date
-                                </th>
-                                <th scope="col" class="p-[2rem]">
-                                    ACTIONS
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let transaction of transactions" class="bg-[#fff] border-b  hover:bg-gray-50 ">
-                                <td scope="row" class="p-[1rem] font-medium text-gray-900 whitespace-nowrap ">
-                                    <div class="flex gap-[1rem]">
-                                        {{transaction.terminalId}}
+                            <div class="mb-[1rem]" *ngFor="let deposit of deposits">
+                                <div class="flex w-full gap-[1rem]">
+                                    <div class="">
+                                        <img src="/assets/images/calc.png" alt="dummy" />
                                     </div>
-                                </td>
-                                <td class="p-[1rem]">
-                                    {{transaction.amount}}
-                                </td>
-                                <td class="p-[1rem]">
-                                    {{transaction.createdAt}}
-                                </td>
-                                <td class="p-[1rem]">
-                                    <div class="flex gap-[1rem]">
-                                        <div>
-                                            <img class="cursor-pointer" src="assets/images/bx-send.png" alt="">
+                                    <div class="w-[100%] flex justify-between">
+                                        <div class="">
+                                            <div class="text-[12px] font-[800]">
+                                                <p>{{deposit?.location}}</p>
+                                            </div>
+                                            <div class="text-[12px] font-[500]">
+                                                <p>{{deposit?.operatorName}}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <img class="cursor-pointer" src="assets/images/bx-show.png" alt="">
-                                        </div>
-                                        <div>
-                                            <img class="cursor-pointer" src="assets/images/bx-download.png" alt="">
+                                        <div class="text-[green]">
+                                            <p class="">+N{{deposit?.amount}}</p>
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
 
-                        </tbody>
-                    </table>
-                    <div class="mt-[4rem] bg-[#fff] flex justify-between items-center p-[1rem] px-[2rem]">
-                        <div class="flex items-center gap-[1rem]">
-                            <span> {{totalNumOfTerminalEntry}} Result</span>
+                                </div>
+                            </div>
 
-                            <div class="p-[1rem] py-[0.5rem] flex items-center bg-[#fff] rounded-[12px]">
-                                <span class="whitespace-nowrap">Rows per page: </span>
-                                <select (change)="getTransactionSize(transactionFilterRequest.size)"
-                                    [(ngModel)]="transactionFilterRequest.size"
-                                    class=" outline-none text-[#4B5563] text-[14px] leading-[150%] text-[ #4B5563] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    <option value=5 selected>5</option>
-                                    <option value=10>10</option>
-                                    <option value=20>20</option>
-                                </select>
-                            </div>
                         </div>
-                        <div class="flex justify-end gap-[2rem]">
-                            <div (click)="transactionPreviousPage()"
-                                class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
-                                Previous
-                            </div>
-                            <div (click)="transactionNextPage()"
-                                class="cursor-pointer p-[1rem] py-[0.5rem] border rounded-[4px]">
-                                Next
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
+
         </div>
 
     </div>
