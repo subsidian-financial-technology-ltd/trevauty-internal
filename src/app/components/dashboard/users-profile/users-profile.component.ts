@@ -4,11 +4,11 @@ import { ClientsService } from 'src/app/services/clients.service';
 import { UtilService } from 'src/app/services/util.service';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss']
+  selector: 'app-users-profile',
+  templateUrl: './users-profile.component.html',
+  styleUrls: ['./users-profile.component.scss']
 })
-export class UserProfileComponent {
+export class UsersProfileComponent {
 
   // userDetails = UtilService.getUserDetails() || "";
 

@@ -39,6 +39,11 @@ import { ProfileHelpComponent } from './components/dashboard/profile-help/profil
 import { MaterialModule } from './components/dashboard/manage-terminal/material.module';
 import { AnalyticsComponent } from './components/dashboard/analytics/analytics.component';
 import { SettingsComponent } from './components/dashboard/settings/settings.component';
+import { SettingComponent } from './components/dashboard/setting/setting.component';
+import { SettingAuthComponent } from './components/dashboard/setting-auth/setting-auth.component';
+import { SettingHelpComponent } from './components/dashboard/setting-help/setting-help.component';
+import { SettingHomeComponent } from './components/dashboard/setting-home/setting-home.component';
+import { UsersProfileComponent } from './components/dashboard/users-profile/users-profile.component';
 
 
 
@@ -64,7 +69,13 @@ import { SettingsComponent } from './components/dashboard/settings/settings.comp
     ProfileAuthComponent,
     ProfileHelpComponent,
     AnalyticsComponent,
-    SettingsComponent
+    SettingsComponent,
+    SettingComponent,
+    SettingAuthComponent,
+    SettingHelpComponent,
+    SettingHomeComponent,
+    UsersProfileComponent
+  
   ],
   imports: [
     BrowserModule,

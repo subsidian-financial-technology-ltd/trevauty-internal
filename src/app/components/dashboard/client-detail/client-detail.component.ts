@@ -30,6 +30,7 @@ export class ClientDetailComponent {
   terminalNumOfPages: number = 0;
   totalNumOfTransactionEntry: number = 0;
   totalNumOfTerminalEntry : number = 0;
+  ledgerList : any[] = [];
 
   transactionFilterRequest = {
     status: null,
@@ -256,6 +257,19 @@ export class ClientDetailComponent {
   showTransactionDetails(transaction: any): void {
     console.log(transaction);
     this.router.navigate([`dashboard/clients/:${this.merchantId}`, transaction]); 
+  }
+
+  getWalletLedger(walletId: String){
+    this.clientService.getWalletLedger(walletId).subscribe({
+      next:(res: any)=>{
+        this.ledgerList= res.data.content;
+
+        console.log(res);
+
+      },error:(err: any)=>{
+        console.log(err)
+      }
+    })
   }
 
 }

@@ -17,6 +17,11 @@ import { ProfileHelpComponent } from './components/dashboard/profile-help/profil
 import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
 import { AnalyticsComponent } from './components/dashboard/analytics/analytics.component';
 import { SettingsComponent } from './components/dashboard/settings/settings.component';
+import { SettingComponent } from './components/dashboard/setting/setting.component';
+import { SettingHomeComponent } from './components/dashboard/setting-home/setting-home.component';
+import { SettingAuthComponent } from './components/dashboard/setting-auth/setting-auth.component';
+import { SettingHelpComponent } from './components/dashboard/setting-help/setting-help.component';
+import { UsersProfileComponent } from './components/dashboard/users-profile/users-profile.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -30,20 +35,29 @@ const routes: Routes = [
       // { path: 'profile', component:  }, 
       { path: 'clients', component: ClientsComponent},
       { path: 'analytic', component: AnalyticsComponent},
-      { path: 'settings', component: SettingsComponent},
+      // { path: 'settings', component: SettingsComponent},
       { path: 'clients/:merchantId', component: ClientDetailComponent }, 
       { path: 'clients/:merchantId/:transaction', component: TransactionComponent }, 
 
       { path:'profile', component: ProfileComponent, children:[
         { path: '', component: ProfileHomeComponent, children:[
           { path:"", redirectTo: 'user', pathMatch: 'full'},
-          { path:"user", component: UserProfileComponent },
+          { path:"user", component: UsersProfileComponent },
           // { path:"edit-user", component: EditUserFormComponent },
           { path:"auth", component: ProfileAuthComponent },
           { path:"help", component:ProfileHelpComponent },
         ]}
-      ]}
+      ]},
 
+      { path:'settings', component: SettingComponent, children:[
+        { path: '', component: SettingHomeComponent, children:[
+          { path:"", redirectTo: 'user', pathMatch: 'full'},
+          { path:"user", component: UserProfileComponent },
+          // { path:"edit-user", component: EditUserFormComponent },
+          { path:"auth", component: SettingAuthComponent },
+          { path:"help", component:SettingHelpComponent },
+        ]}
+      ]}
 
       // { path: 'api-documentation', component: DocumentationComponent }
     ],

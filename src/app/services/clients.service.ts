@@ -121,6 +121,24 @@ export class ClientsService {
     return this.http.post<any>(`${baseURL}api/v1/provider/fetch`, {body:{}} );
   }
 
+  getWalletDetails(): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/internal/profile/get-wallet`, {body:{}} );
+  }
+
+  getWalletLedger(walletId: String): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/internal/profile/get-ledger?walletId=${walletId}`, {body:{}} );
+  }
+
+
+
   getUsersList(): Observable<any> {
     return this.http.get<any>('assets/data/usersList.json');
   }
