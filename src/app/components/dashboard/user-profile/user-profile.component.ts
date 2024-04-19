@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClientsService } from 'src/app/services/clients.service';
 import { UtilService } from 'src/app/services/util.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,6 +12,16 @@ import { UtilService } from 'src/app/services/util.service';
 export class UserProfileComponent {
 
   // userDetails = UtilService.getUserDetails() || "";
+
+  userProfile = {
+    fullName:"",
+    userName:"",
+    email:"",
+    phoneNumber:"",
+    staffId:"",
+    securityConfig:"",
+  }
+  fullName="";
 
   constructor(private router: Router, private clientService: ClientsService) { }
 
@@ -41,5 +52,9 @@ export class UserProfileComponent {
     }
     return ratings;
   }
+
+onSubmit(){
+  console.log("hello world");
+}
 
 }

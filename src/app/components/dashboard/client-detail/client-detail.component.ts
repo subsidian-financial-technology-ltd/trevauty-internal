@@ -18,6 +18,10 @@ export class ClientDetailComponent {
   terminalApiResponse: any;
   deposits:any = [];
 
+  terminal : any = {};
+
+  singleMerchantStats: any = {};
+
 
   transactionPage: number = 0;
   transactionSize: number = 10;
@@ -65,10 +69,6 @@ export class ClientDetailComponent {
 
   }
 
-
-  terminal : any = {};
-
-
   getMerchantDetails(): void{
     console.log("hello world 1")
     // const 
@@ -86,6 +86,17 @@ export class ClientDetailComponent {
       },
       error:(err: any)=>{
           console.log(err);
+      }
+    })
+  }
+
+  getTerminalAnalytics(){
+    this.clientService.getSingleMerchantsAnalytics(this.merchantId).subscribe({
+      next: (res:any) => {
+          this.singleMerchantStats = res;
+      },
+      error: (err: any) => {
+        console.log(err);
       }
     })
   }

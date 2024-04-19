@@ -95,7 +95,7 @@ console.log(this.formSubmitted);
         this.apiResponse = response;
         console.log(this.apiResponse);
         this.resetFormInputs();
-        this.showSuccess()
+        this.showSuccess();
         this.toggleModal();
         
         // this.router.navigate(['login']);

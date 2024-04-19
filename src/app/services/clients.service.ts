@@ -112,6 +112,14 @@ export class ClientsService {
     return this.http.post<any>(`${baseURL}api/v1/internal/terminal/transaction/${refNumber}`, {body:{}} );
   }
 
+  getSingleMerchantsAnalytics(merchantId: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/internal/overview/overview_data/${merchantId}`, {body:{}} );
+  }
+
 
   addProvider(providerDetails: ProviderDetails): Observable<any> {
     const headers = new HttpHeaders({

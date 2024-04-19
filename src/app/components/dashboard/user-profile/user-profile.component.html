@@ -192,115 +192,93 @@
 
         <div class="">
             <p>Your Profile Picture</p>
-            <div class="h-[200px] mb-[2rem] w-[20%] rounded-[2rem] p-[1.5rem] bg-[#f1f1f1]" >
+            <div class="h-[200px] mb-[2rem] w-[20%] rounded-[2rem] p-[1.5rem] bg-[#f1f1f1]">
                 <div class="flex justify-end gap-[1.5rem]">
                     <img class="cursor-pointer" src="/assets/images/fi_upload-cloud.png" alt="">
                     <img class="cursor-pointer" src="/assets/images/Delete.png" alt="">
                 </div>
-   
+
             </div>
 
 
+            <form action="" (ngSubmit)="onSubmit()">
 
-            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
-                <div class="mb-5">
-                    <label for="fullName" class="block mb-2 font-medium text-gray-900">
-                        Full Name</label>
-                    <input type="text" id="fullName"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Full Name" required>
-                </div>
-        
-                <div class="mb-5">
-                    <label for="email" class="block mb-2 font-medium text-gray-900">Email
-                        Address</label>
-                    <input type="email" id="email"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Email" required>
-                </div>
-            </div>
+                <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                    <div class="mb-5">
+                        <label for="fullName" class="block mb-2 font-medium text-gray-900">
+                            Full Name</label>
+                        <input id="fullName"
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
+                            placeholder="Full Name" required>
+                    </div>
 
-            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
-                <div class="mb-5">
-                    <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">
-                        Phone Number</label>
-                    <input type="phone" id="phoneNumber"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Phone Number" required>
-                </div>
-        
-                <div class="mb-5">
-                    <label for="country" class="block mb-2 font-medium text-gray-900">
-                        Country</label>
-                    <input type="text" id="country"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Country" required>
-                </div>
-            </div>
+                    
 
-            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
-                <div class="mb-5">
-                    <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">
-                        Phone Number</label>
-                    <input type="phone" id="phoneNumber"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Phone Number" required>
+                    <div class="mb-5">
+                        <label for="email" class="block mb-2 font-medium text-gray-900">Email Address
+                            </label>
+                        <input type="email" id="email"
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
+                            placeholder="Email" required>
+                    </div>
                 </div>
-        
-                <div class="mb-5">
-                    <label for="country" class="block mb-2 font-medium text-gray-900">
-                        Country</label>
-                    <input type="text" id="country"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Country" required>
-                </div>
-            </div>
 
-            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
-                <div class="mb-5">
-                    <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">
-                        Phone Number</label>
-                    <input type="phone" id="phoneNumber"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Phone Number" required>
-                </div>
-        
-                <div class="mb-5">
-                    <label for="country" class="block mb-2 font-medium text-gray-900">
-                        Country</label>
-                    <input type="text" id="country"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Country" required>
-                </div>
-            </div>
+                <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                    <div class="mb-5">
+                        <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">
+                            User Name</label>
+                        <input type="phone" id="phoneNumber"
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
+                            placeholder="Phone Number" required>
+                    </div>
 
-            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
-                <div class="mb-5">
-                    <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">
-                        Phone Number</label>
-                    <input type="phone" id="phoneNumber"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Phone Number" required>
+                    <div class="mb-5">
+                        <label for="country" class="block mb-2 font-medium text-gray-900">
+                            Phone Number</label>
+                        <input type="text" id="country"
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
+                            placeholder="Country" required>
+                    </div>
                 </div>
-        
-                <div class="mb-5">
-                    <label for="country" class="block mb-2 font-medium text-gray-900">
-                        Country</label>
-                    <input type="text" id="country"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Country" required>
-                </div>
-            </div>
 
-            <div class="w-full grid md:grid-cols-2 gap-[3rem]">
-                <div class="mb-5">
-                    <label for="email" class="block mb-2 font-medium text-gray-900">
-                        Address</label>
-                    <input type="email" id="address"
-                        class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
-                        placeholder="Address" required>
+                <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                    <div class="mb-5">
+                        <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">
+                            Phone Number</label>
+                        <input type="phone" id="phoneNumber"
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
+                            placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="country" class="block mb-2 font-medium text-gray-900">
+                            Staff Id</label>
+                        <input type="text" id="country"
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
+                            placeholder="Country" required>
+                    </div>
                 </div>
-            </div>
+
+                <div class="w-full grid md:grid-cols-2 gap-[3rem]">
+                    <div class="mb-5">
+                        <label for="phoneNumber" class="block mb-2 font-medium text-gray-900">
+                            Security Configuration</label>
+                        <input type="phone" id="phoneNumber"
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
+                            placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="country" class="block mb-2 font-medium text-gray-900">
+                            Country</label>
+                        <input type="text" id="country"
+                            class="bg-[#F2F2F2] border border-[#EDF2F6] text-gray-900  rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full p-[1.5rem]"
+                            placeholder="Country" required>
+                    </div>
+                </div>
+
+            </form>
+
         </div>
     </div>
 </form>
