@@ -69,6 +69,7 @@ export class OverviewComponent {
   addProvider(){
     this.clientService.addProvider(this.providerForm.value).subscribe({
       next: (response: any) => {
+        
         console.log(response);
       },
       error: (items: any) => {

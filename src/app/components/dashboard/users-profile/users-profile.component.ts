@@ -12,16 +12,27 @@ export class UsersProfileComponent {
 
   // userDetails = UtilService.getUserDetails() || "";
 
+  usersList: any[] = []
+  transactionList: any [] = [];
+
+
   constructor(private router: Router, private clientService: ClientsService) { }
-
-
 
   ngOnInit(): void {
     this.getUsersList();
+    this.getTransactionList();
   }
 
+  getTransactionList(){
+    this.clientService.getTransactionList().subscribe({
+      next:(items: any)=>{
+          this.transactionList = items.data.content;
+      },
+      error:(items:any)=>{
 
-  usersList: any[] = []
+      }
+    })
+  }
 
   getUsersList(){
     this.clientService.getUsersList().subscribe({

@@ -74,14 +74,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let terminal of usersList; let i = index"
+                <tr *ngFor="let transaction of transactionList; let i = index"
                     class="bg-[#fff] border-b  hover:bg-gray-50 ">
                     <td scope="row" class="px-[2rem] font-medium text-gray-900 whitespace-nowrap">
-                        {{terminal.transaction}}
+                        {{transaction.transaction}}
                     </td>
                     <td scope="row" class="px-[2rem] font-medium text-gray-900 whitespace-nowrap ">
                         <div class="flex gap-[1rem] items-center">
-                            <span>{{terminal.name}}</span>
+                            <span>{{transaction.name}}</span>
                         </div>
                     </td>
                     <td scope="row" class="px-[2rem] font-medium text-gray-900 whitespace-nowrap ">
@@ -91,31 +91,31 @@
                     </td>
                     <td class="px-[2rem]">
                         <div class="p-[0.3rem] px-[0.5rem] rounded-[8px]">
-                            {{terminal.transaction}}
+                            {{transaction.transaction}}
 
                         </div>
                     </td>
                     <td class="px-[2rem]">
-                        ${{terminal.total}}
+                        ${{transaction.total}}
 
                     </td>
                     <td class="px-[2rem]">
-                        {{terminal.rate}}
+                        {{transaction.rate}}
 
                     </td>
                     <td class="px-[1rem]">
-                        <div *ngIf="terminal.status === 'Approved' "
+                        <div *ngIf="transaction.status === 'Approved' "
                             class="bg-[#bff9e6] p-[1rem] py-[0.5rem] flex items-center justify-center w-[120px] gap-[1rem] rounded-[4px]">
-                            <span class="text-[#1AD598]">{{terminal.status}}</span>
+                            <span class="text-[#1AD598]">{{transaction.status}}</span>
                         </div>
-                        <div *ngIf="terminal.status === 'Pending' "
+                        <div *ngIf="transaction.status === 'Pending' "
                             class="bg-[#edecec] p-[1rem] py-[0.5rem] flex items-center justify-center w-[120px] gap-[1rem] rounded-[4px]">
-                            <span class="text-[grey]">{{terminal.status}}</span>
+                            <span class="text-[grey]">{{transaction.status}}</span>
                         </div>
 
-                        <div *ngIf="terminal.status === 'unpaid' "
+                        <div *ngIf="transaction.status === 'unpaid' "
                             class="bg-[#f9c0c0] p-[1rem] py-[0.5rem] flex items-center justify-center w-[120px] gap-[1rem] rounded-[4px]">
-                            <span class="text-[#EA3A3D]">{{terminal.status}}</span>
+                            <span class="text-[#EA3A3D]">{{transaction.status}}</span>
                         </div>
 
                     </td>

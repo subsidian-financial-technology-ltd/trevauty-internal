@@ -104,13 +104,21 @@ export class ClientsService {
     return this.http.post<any>(`${baseURL}api/v1/analytic/merchant-transaction?merchantId=${merchantId}&page=${page}&size=${size}`, {body:{}} );
   }
 
+  getSingleMerchantsTransaction(refNumber: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/internal/terminal/transaction/${refNumber}`, {body:{}} );
+  }
+
 
   addProvider(providerDetails: ProviderDetails): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
-    return this.http.post<any>(`${baseURL}api/v1/provider/add`, {body: providerDetails} );
+    return this.http.post<any>(`${baseURL}api/v1/provider/add`, providerDetails);
   }
 
   getProviders(): Observable<any> {
@@ -118,7 +126,7 @@ export class ClientsService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${TokenService.getToken()}`
     });
-    return this.http.post<any>(`${baseURL}api/v1/provider/fetch`, {body:{}} );
+    return this.http.post<any>(`${baseURL}api/v1/provider/fetch`, {body:{}} , { headers:headers });
   }
 
   getWalletDetails(): Observable<any> {
@@ -138,6 +146,13 @@ export class ClientsService {
   }
 
 
+  getTransactionList(): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${TokenService.getToken()}`
+    });
+    return this.http.post<any>(`${baseURL}api/v1/internal/terminal/transactions}`, {body:{}} );
+  }
 
   getUsersList(): Observable<any> {
     return this.http.get<any>('assets/data/usersList.json');

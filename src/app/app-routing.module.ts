@@ -37,7 +37,7 @@ const routes: Routes = [
       { path: 'analytic', component: AnalyticsComponent},
       // { path: 'settings', component: SettingsComponent},
       { path: 'clients/:merchantId', component: ClientDetailComponent }, 
-      { path: 'clients/:merchantId/:transaction', component: TransactionComponent }, 
+      { path: 'clients/:merchantId/:transactionId', component: TransactionComponent }, 
 
       { path:'profile', component: ProfileComponent, children:[
         { path: '', component: ProfileHomeComponent, children:[

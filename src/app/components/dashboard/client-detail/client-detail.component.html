@@ -273,7 +273,7 @@
                                             <div>
                                                 <img class="cursor-pointer" src="assets/images/bx-send.png" alt="">
                                             </div>
-                                            <div>
+                                            <div  (click)="showTransactionDetails(transaction.referenceNumber)">
                                                 <img class="cursor-pointer" src="assets/images/bx-show.png" alt="">
                                             </div>
                                             <div>
@@ -346,18 +346,11 @@
                                             <p class="">+N{{deposit?.amount}}</p>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-
                         </div>
-
                 </div>
             </div>
-
         </div>
-
     </div>
-
-
 </div>

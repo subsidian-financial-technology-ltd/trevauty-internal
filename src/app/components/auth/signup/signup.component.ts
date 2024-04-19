@@ -144,11 +144,12 @@ constructor( private http: HttpClient,
   
   ) {
   this.authForm = new FormGroup({
-    fullName: new FormControl(  '',  [Validators.required]),
+    firstName: new FormControl(  '',  [Validators.required]),
+    lastName: new FormControl(  '',  [Validators.required]),
+    phoneNumber: new FormControl(  '',  [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern('')]),
     email: new FormControl(  '',  [Validators.required, Validators.pattern('^.+@.+\..+$')]),
-     password: new FormControl(  '',  [Validators.required]),
-     optionChecked : new FormControl('',   [Validators.required]),
-
+    password: new FormControl(  '',  [Validators.required]),
+    optionChecked : new FormControl('',   [Validators.required]),
   }); 
   
   // this.authForm = this.formBuilder.group({
@@ -203,7 +204,7 @@ console.log(this.formSubmitted);
 this.formSubmitted = true;
 if (this.authForm.valid) {
   console.log({ user });
-  this.authService.accountLogin(this.authForm.value).subscribe({
+  this.authService.accountSignUp(this.authForm.value).subscribe({
     next: (response) => {
       console.log("response =>>>>", response);
       this.apiResponse = response;

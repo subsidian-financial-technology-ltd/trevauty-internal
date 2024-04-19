@@ -58,7 +58,7 @@ export class ClientDetailComponent {
   constructor(private route: ActivatedRoute, private clientService: ClientsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getTerminalDetail();
+    // this.getTerminalDetail();
     this.getMerchantDetails();
     this.getTerminalPerMerchant();
     this.getMerchantTranasactions();
@@ -255,8 +255,9 @@ export class ClientDetailComponent {
 
 
   showTransactionDetails(transaction: any): void {
+    console.log("hello me")
     console.log(transaction);
-    this.router.navigate([`dashboard/clients/:${this.merchantId}`, transaction]); 
+    this.router.navigate([`dashboard/clients/${this.merchantId}`, transaction]); 
   }
 
   getWalletLedger(walletId: String){
@@ -271,5 +272,11 @@ export class ClientDetailComponent {
       }
     })
   }
+
+
+  // showTransactionDetails(transaction: any): void {
+  //   console.log(transaction);
+  //   this.router.navigate(['dashboard/clients', transaction]); 
+  // }
 
 }
